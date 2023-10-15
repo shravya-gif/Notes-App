@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import NoteContainer from "./Components/NoteContainer";
+import Sidebar from "./Components/Sidebar";
 
-function App() {
+export default function App() {
+  const [notes, setNotes] = useState([
+    {
+      text: "asdfg",
+      time: Date.now(),
+      color: "cyan",
+    },
+    {
+      text: "HEY",
+      time: Date.now(),
+      color: "red",
+    },
+    {
+      text: "Hello",
+      time: Date.now(),
+      color: "Pink",
+    },
+    {
+      text: "Good Day",
+      time: Date.now(),
+      color: "light blue",
+    },
+    {
+      text: "namastge",
+      time: Date.now(),
+      color: "orange",
+    },
+  ]);
+  const addNote = (color: any) => {
+    const tempNotes = [...notes];
+    tempNotes.push({
+      text: "",
+      time: Date.now(),
+      color,
+    });
+    setNotes;
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar addNote={addNote} />
+      <NoteContainer notes={notes} />
     </div>
   );
 }
-
-export default App;
