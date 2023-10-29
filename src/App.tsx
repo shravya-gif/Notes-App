@@ -19,15 +19,10 @@ export default function App() {
 
   const [notes, setNotes] = useState<Note[]>(storedNotes);
 
-  const addNote = (color: string) => {
+   let addNote = (note: Note) => {
     const tempNotes = [...notes];
 
-    tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: "",
-      time: Date.now(),
-      color,
-    });
+    tempNotes.push(note);
     setNotes(tempNotes);
   };
 
