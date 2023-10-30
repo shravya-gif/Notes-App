@@ -33,8 +33,7 @@ export default function Sidebar(props: { addNote: (note: Note) => void }) {
     };
 
     props.addNote(newNote);
-    setTitle("");
-    setDescription("");
+   
   };
 
   return (
