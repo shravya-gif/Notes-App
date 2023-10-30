@@ -3,15 +3,16 @@ import "./App.css";
 import NoteContainer from "./Components/NoteContainer";
 import Sidebar from "./Components/Sidebar";
 
-interface Note {
+export interface Note {
   id: string;
   text: string;
   time: number;
   color: string;
+  title:string;
+  description:string;
 }
 
 export default function App() {
-  // Check if there are any notes stored in local storage
   const storedNotesString = localStorage.getItem("my-app");
   const storedNotes: Note[] = storedNotesString
     ? JSON.parse(storedNotesString)
