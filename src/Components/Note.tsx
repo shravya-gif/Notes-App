@@ -40,10 +40,14 @@ export default function Note(props: any) {
   };
   return (
     <div className="note" style={{ backgroundColor: props.note.color }}>
+      <p>{props.note.title}</p>
+      <p>{props.note.description}</p>
       <textarea
         className="note_text"
         defaultValue={props.note.text}
-        onChange={(event) => updateText(event.target.value, props.note.id)}   />
+        onChange={(event) => updateText(event.target.value, props.note.id)}
+      />
+
       <div className="note_footer">
         <p>{formatDate(props.note.time)}</p>
         <img
@@ -52,7 +56,6 @@ export default function Note(props: any) {
           onClick={() => props.deleteNote(props.note.id)}
         ></img>
       </div>
-      
     </div>
   );
 }

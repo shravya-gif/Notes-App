@@ -9,8 +9,8 @@ export default function Sidebar(props: { addNote: (note: Note) => void }) {
   const [listOpen, setListOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState("");
-  const [title, setTitle] = useState(""); 
-  const [description, setDescription] = useState(""); 
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const openModal = (color: string) => {
     setSelectedColor(color);
@@ -22,18 +22,19 @@ export default function Sidebar(props: { addNote: (note: Note) => void }) {
   };
 
   const handleClick = () => {
+    const currentTime = new Date().getTime();
     const newNote: Note = {
       title: title,
       description: description,
       id: "",
-      
-      text: '',
-      time: 0,
+      text: "",
+      time: currentTime,
       color: selectedColor,
     };
 
     props.addNote(newNote);
-   
+    setTitle('')
+    setDescription('')
   };
 
   return (
@@ -50,7 +51,7 @@ export default function Sidebar(props: { addNote: (note: Note) => void }) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            
+
             <label>Description of the Modal goes here.</label>
             <input
               type="text"
