@@ -3,7 +3,6 @@ import plusicon from "../Assets/new-plus-icon.png";
 import "./Sidebar.css";
 
 import { Note } from "../App";
-import { randomUUID } from "crypto";
 
 export default function Sidebar(props: { addNote: (note: Note) => void }) {
   const colors = ["#BDE4FF", "#8698D9", "#AEA1F0", "#B484D9", "#F596FA"];
